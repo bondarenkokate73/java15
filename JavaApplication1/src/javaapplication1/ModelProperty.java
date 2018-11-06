@@ -13,26 +13,26 @@ public class ModelProperty
     private String DOB;
     private String FIO;
     private String target;
-    private String expirience;
+    private String experience;
     private String education;
     private String courses;
     private String skills;
     private String code;
     
-    public ModelProperty(ArrayList<String> dictionary, Properties property)
-    {
+    public ModelProperty(Properties property)
+    {      
         this.property = property;
-        this.Skype = dictionary.get(0); 
-        this.avatar = dictionary.get(1); 
-        this.email = dictionary.get(2); 
-        this.DOB = dictionary.get(3); 
-        this.FIO = dictionary.get(4); 
-        this.target = dictionary.get(5); 
-        this.expirience = dictionary.get(6); 
-        this.education = dictionary.get(7); 
-        this.courses = dictionary.get(8); 
-        this.skills = dictionary.get(9); 
-        this.code = dictionary.get(10); 
+        this.FIO = property.getProperty("FIO");
+        this.DOB = property.getProperty("DOB");
+        this.email = property.getProperty("email");
+        this.Skype = property.getProperty("Skype");
+        this.avatar = property.getProperty("avatar");
+        this.target = property.getProperty("target");
+        this.experience = property.getProperty("experience");
+        this.education = property.getProperty("education");
+        this.courses = property.getProperty("courses");
+        this.skills = property.getProperty("skills");
+        this.code = property.getProperty("code");
     }
     
     public ModelProperty()
@@ -117,15 +117,15 @@ public class ModelProperty
         property.setProperty("target", target);
     }
     
-    public String getExpirience()
+    public String getExperience()
     {
-        return expirience;
+        return experience;
     }
     
-    public void setExpirience(String expirience)
+    public void setExperience(String experience)
     {
-        this.expirience = expirience;
-        property.setProperty("expirience", expirience);
+        this.experience = experience;
+        property.setProperty("experience", experience);
     }
     
     public String getEducation()
@@ -159,5 +159,10 @@ public class ModelProperty
     {
         this.code = code;
         property.setProperty("code", code);
+    }
+    
+    public Properties newProp()
+    {
+        return property;
     }
 }

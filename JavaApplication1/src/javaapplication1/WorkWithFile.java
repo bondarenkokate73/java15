@@ -64,4 +64,9 @@ public class WorkWithFile
          Desktop.getDesktop().open(file);
     }
     
+    public void saveProp(Properties property) throws IOException
+    {
+        FileOutputStream out = new FileOutputStream("./info.properties");
+        property.store(out,"мои пропертя");
+    }
 }

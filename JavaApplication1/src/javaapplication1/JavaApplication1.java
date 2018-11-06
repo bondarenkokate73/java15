@@ -1,4 +1,3 @@
-
 package javaapplication1;
 import java.awt.Desktop;
 import java.io.File;
@@ -11,37 +10,25 @@ public class JavaApplication1 {
 
     public static void main(String[] args) throws IOException 
     {
-        Properties property = new Properties();
+       Properties property = new Properties();
+       ArrayList<String> resum = new ArrayList<>();       
+       
+       WorkWithFile wwf = new WorkWithFile();
+       wwf.createFile();
+       wwf.readFile(property);
+                
+       ModelProperty mp = new ModelProperty(property);
+       mp.setFIO("Бондаренко Екатерина Сергеевна");
+       wwf.saveProp(mp.newProp());
+       
+       ValueFromProp vfp = new ValueFromProp(resum, property, mp);
+       vfp.value(resum, property, mp);
 
-        ArrayList<String> dictionary = new ArrayList<String>();
-        dictionary.add("FIO");
-        dictionary.add("DOB");
-        dictionary.add("email");
-        dictionary.add("Skype");
-        dictionary.add("avatar");
-        dictionary.add("target");
-        dictionary.add("experience");
-        dictionary.add("education");
-        dictionary.add("courses");
-        dictionary.add("skills");
-        dictionary.add("code");
-        
-        WorkWithFile wwf = new WorkWithFile();
-        wwf.createFile();
-        wwf.readFile(property);
-        
-        ModelProperty mp = new ModelProperty(dictionary, property);
-        mp.setSkype("kliffoss");
-
-        ValueFromProp vfp = new ValueFromProp(dictionary, property);
-        dictionary  = vfp.value(dictionary, property);
-
-       GenerateHtml genHTML = new GenerateHtml(dictionary);
-       String text = genHTML.generateHtml(dictionary);
+       GenerateHtml genHTML = new GenerateHtml(resum);
+       String text = genHTML.generateHtml(resum);
         
        wwf.writeFile(text);
-       wwf.openFile();
-        
+       wwf.openFile(); 
     }
     }
 
