@@ -1,4 +1,4 @@
-package com.mycompany.resume;
+package main.java.com.mycompany.resume;
 
 import java.util.ArrayList;
 import java.util.Properties;

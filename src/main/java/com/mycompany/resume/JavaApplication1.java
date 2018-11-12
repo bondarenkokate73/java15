@@ -1,4 +1,4 @@
-package com.mycompany.resume;
+package main.java.com.mycompany.resume;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
@@ -11,7 +11,9 @@ public class JavaApplication1 {
     public static void main(String[] args) throws IOException 
     {
        Properties property = new Properties();
-       ArrayList<String> resum = new ArrayList<>();       
+       ArrayList<String> resum = new ArrayList<>();
+       ArrayList<String> html = new ArrayList<>();           
+       String text="";
        
        WorkWithFile wwf = new WorkWithFile();
        wwf.createFile();
@@ -22,11 +24,17 @@ public class JavaApplication1 {
 //       wwf.saveProp(mp.newProp());
        
        ValueFromProp vfp = new ValueFromProp(resum, property, mp);
-       vfp.value(resum, property, mp);
+       resum = vfp.value(resum, property, mp);
 
        GenerateHtml genHTML = new GenerateHtml(resum);
-       String text = genHTML.generateHtml(resum);
-        
+       html = genHTML.generateHtml(resum,html);
+       
+       int j=0;
+       for (int i=0; i<html.size()-1; i++)
+       {
+               text = text + html.get(i) + resum.get(j);
+               j++;
+       }
        wwf.writeFile(text);
        wwf.openFile(); 
     }

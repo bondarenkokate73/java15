@@ -1,4 +1,4 @@
-package com.mycompany.resume;
+package main.java.com.mycompany.resume;
 
 import java.awt.Desktop;
 import java.io.File;
