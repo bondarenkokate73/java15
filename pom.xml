@@ -4,14 +4,14 @@
                     http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.simbirsoft.itplace</groupId>
+    <groupId>mycompany</groupId>
     <artifactId>bond</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <packaging>jar</packaging>
 
-    <name>stratonov</name>
-    <url>https://www.simbirsoft.com</url>
+    <name>Resume</name>
+    <url>https://my.company.com</url>
 
     <properties>
         <java.version>1.8</java.version>
@@ -20,7 +20,7 @@
         <maven.war.plugin.version>3.0.0</maven.war.plugin.version>
         <maven.resources.plugin.version>3.0.0</maven.resources.plugin.version>
     </properties>
-    
+
     <dependencies>
         <dependency>
 <groupId>log4j</groupId>
@@ -35,7 +35,7 @@
         <sourceDirectory>src/main/java</sourceDirectory>
         <resources>
             <resource>
-                <directory>${basedir}/src/javaapplication1/</directory>
+                <directory>${basedir}/src/main/resources</directory>
                 <includes>
                     <include>*.properties</include>
                 </includes>
