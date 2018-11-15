@@ -20,7 +20,7 @@
         <maven.war.plugin.version>3.0.0</maven.war.plugin.version>
         <maven.resources.plugin.version>3.0.0</maven.resources.plugin.version>
     </properties>
-    
+
     <dependencies>
         <dependency>
 <groupId>log4j</groupId>
@@ -35,7 +35,7 @@
         <sourceDirectory>src/main/java</sourceDirectory>
         <resources>
             <resource>
-                <directory>${basedir}/src/javaapplication1/</directory>
+                <directory>${basedir}/src/main/resources</directory>
                 <includes>
                     <include>*.properties</include>
                 </includes>
