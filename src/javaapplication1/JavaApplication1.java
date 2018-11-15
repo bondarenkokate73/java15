@@ -5,29 +5,36 @@ import java.io.File;
 import java.io.IOException;
 import java.io.*;
 import java.util.Properties;
+import org.apache.log4j.Logger;
 
 public class JavaApplication1 {
-
+    
+    private static final Logger log = Logger.getLogger(JavaApplication1.class);
+    
     public static void main(String[] args) throws IOException 
     {
-        File dir = new File(".");
-        File file = new File(dir, "html.html");
+       
+        File em = new File(".");
+        File au = new File(em, "html.html");
         
-        if (!file.exists())
+        if (!au.exists())
         {
             try
             {
-                boolean isFile =  file.createNewFile();
+                boolean isFile =  au.createNewFile();
                 System.out.println("Файл html создан.");
+                log.info("Файл html создан.");
             }
             catch (IOException ex)
             {
                 System.out.println("Создать html файл не удалось.");
+                log.error("Создать html файл не удалось.");
             }
         }
+      
         
         Properties property = new Properties();
-        FileInputStream fis;
+        FileInputStream qq;
 //       
 //        
 //        property.setProperty("FIO", "Бондаренко Екатерина Сергеевна");
@@ -42,25 +49,27 @@ public class JavaApplication1 {
 //        
         try
         {
-            fis = new FileInputStream ("./info.properties");   
-            property.load(fis);
+            qq = new FileInputStream ("./person.properties");   
+            property.load(qq);
+            log.info("Данные из файла проперти были загружены успешно.");
         }
         catch (IOException ex)
         {
                 System.err.println("ОШИБКА: Файл свойств отсуствует!");
+                log.error("ОШИБКА: Файл свойств отсуствует!");
         }
         
-        String fio = property.getProperty("FIO");
-        String dob = property.getProperty("DOB");
-        String email = property.getProperty("email");
-        String skype = property.getProperty("Skype");
-        String avatar = property.getProperty("avatar");
-        String target = property.getProperty("target");
-        String experience = property.getProperty("experience");
-        String education =   property.getProperty("education");    
-        String courses = property.getProperty("courses");
-        String skills = property.getProperty("skills");
-        String code = property.getProperty("code");
+        String a = property.getProperty("FIO");
+        String b = property.getProperty("DOB");
+        String c = property.getProperty("email");
+        String d = property.getProperty("Skype");
+        String e = property.getProperty("avatar");
+        String h = property.getProperty("target");
+        String j = property.getProperty("experience");
+        String k = property.getProperty("education");    
+        String l = property.getProperty("courses");
+        String m = property.getProperty("skills");
+        String n = property.getProperty("code");
 
        String text = "<html>\n" +
                         "<style>\n" +
@@ -77,39 +86,45 @@ public class JavaApplication1 {
                         "<table>\n" +
                         "<tr>\n" +
                         "<td class=\"headinfo\"><b>ФИО:<br>Дата рождения:<br>  E-mail:<br> Skype:</b></td>\n" +
-                        "<td> " + fio + " <br>" +  dob + " <br>" +  email + " <br>" +  skype + " <br> </td>	\n" +
-                        "<td> <img width = 200  src= " +  avatar + " ></img> </td> \n" +
+                        "<td> " + a + " <br>" +  b + " <br>" +  c + " <br>" +  d + " <br> </td>	\n" +
+                        "<td> <img width = 200  src= " +  e + " ></img> </td> \n" +
                         " </tr> \n" +
                         " </table> <table><tr><td class=\"headinfo2\"><b> Цель:  </td> </tr> \n" +
-                        " <tr><td class=\"text\"> " +  target + " </td></tr> \n" +
+                        " <tr><td class=\"text\"> " +  h + " </td></tr> \n" +
                         " <tr><td class=\"headinfo2\"><b> Опыт работы:  </td></tr> \n" +
-                        " <tr><td class=\"text\"> " +  experience + " </td></tr> \n" +
+                        " <tr><td class=\"text\"> " +  j + " </td></tr> \n" +
                         " <tr><td class=\"headinfo2\"><b> Образование: </td></tr> \n" +
-                        " <tr><td class=\"text\"> " +  education + " </td></tr> \n" +
+                        " <tr><td class=\"text\"> " +  k + " </td></tr> \n" +
                         " <tr><td class=\"headinfo2\"><b> Доп.образ. и курсы:  </td></tr> \n" +
-                        " <tr><td class=\"text\"> " +  courses + "  </td></tr> \n" +
+                        " <tr><td class=\"text\"> " +  l + "  </td></tr> \n" +
                         " <tr><td class=\"headinfo2\"><b> Навыки:  </td></tr> \n" +
-                        " <tr><td class=\"text\"> " +  skills + " </td></tr> \n" +
+                        " <tr><td class=\"text\"> " +  m + " </td></tr> \n" +
                         " <tr><td class=\"headinfo2\"><b> Код:  </td></tr> \n" +
-                        " <tr><td class=\"text\"> " +  code + " </td></tr> \n" +
+                        " <tr><td class=\"text\"> " +  n + " </td></tr> \n" +
                         "</table>\n" +
                         "</div>\n" +
                         " </center> \n" +
                         " </body> \n" +
                         " </html>";
         
-        try (FileOutputStream fos = new FileOutputStream (file))
+        try (FileOutputStream ww = new FileOutputStream (au))
         {
             byte[] builder = text.getBytes();
-            fos.write(builder, 0, builder.length);
+            ww.write(builder, 0, builder.length);
             System.out.println("Запись прошла успешно.");
+            log.info("Запись прошла успешно.");
         }
         catch (IOException ex)
         {
-            System.out.println(ex.getMessage());     
+            System.out.println(ex.getMessage());    
+            log.error(ex.getMessage());
         }
-         Desktop.getDesktop().open(file);
+         Desktop.getDesktop().open(au);
+         log.info("Файл был открыт.");
 
         }
+    
+     
     }
+
   
