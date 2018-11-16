@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Properties;
 
 public class JavaApplication1 {
@@ -12,7 +13,8 @@ public class JavaApplication1 {
     {
        Properties property = new Properties();
        ArrayList<String> resum = new ArrayList<>();
-       ArrayList<String> html = new ArrayList<>();           
+       ArrayList<String> html = new ArrayList<>();    
+    //   HashMap<String, String> massive = new HashMap();
        String text="";
        
        WorkWithFile wwf = new WorkWithFile();

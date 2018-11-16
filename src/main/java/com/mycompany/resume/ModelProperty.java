@@ -1,12 +1,24 @@
 package main.java.com.mycompany.resume;
 
+import com.sun.javafx.collections.MappingChange.Map;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map.Entry;
 import java.util.Properties;
+import java.util.Set;
+import java.util.SortedSet;
+import java.util.stream.Collectors;
 
 public class ModelProperty 
 {
     Properties property = new Properties();
-    
+    private HashMap<String, Integer> massive = new HashMap();
     private String Skype;
     private String avatar;
     private String email;
@@ -34,6 +46,61 @@ public class ModelProperty
         this.skills = property.getProperty("skills");
         this.code = property.getProperty("code");
     }
+    
+    public String mas(String perem)
+    {
+        String text="";
+        String[] temp;
+        String[] temp1;
+        List<Integer> list = new ArrayList();
+        temp = perem.split(",");
+        for (int i=0; i<temp.length;i++)
+        {
+            temp1 = temp[i].split(":");
+            massive.put(temp1[0], Integer.parseInt(temp1[1]));
+            list.add(Integer.parseInt(temp1[1]));
+        }
+        
+        massive = sortHashMapByValues(massive);
+
+        for (HashMap.Entry<String, Integer> i : massive.entrySet())
+        {
+             text += "<li>" + i.getKey() + " - опыт: " + i.getValue() + " месяцев. </li>";
+        }
+        return text;
+    }
+    
+    public LinkedHashMap<String, Integer> sortHashMapByValues(HashMap<String, Integer> passedMap) 
+    {
+    List<String> mapKeys = new ArrayList<>(passedMap.keySet());
+    List<Integer> mapValues = new ArrayList<>(passedMap.values());
+    Collections.sort(mapValues);
+    Collections.reverse(mapValues);
+    Collections.sort(mapKeys);
+    
+    LinkedHashMap<String, Integer> sortedMap =
+        new LinkedHashMap<>();
+
+    Iterator<Integer> valueIt = mapValues.iterator();
+    while (valueIt.hasNext()) {
+        Integer val = valueIt.next();
+        Iterator<String> keyIt = mapKeys.iterator();
+
+        while (keyIt.hasNext()) {
+            String key = keyIt.next();
+            Integer comp1 = passedMap.get(key);
+            Integer comp2 = val;
+
+            if (comp1.equals(comp2)) {
+                keyIt.remove();
+                sortedMap.put(key, val);
+                break;
+            }
+        }
+    }
+ 
+    return sortedMap;
+}
     
     public ModelProperty()
     {
@@ -141,7 +208,7 @@ public class ModelProperty
     
     public String getSkills()
     {
-        return skills;
+        return mas(skills);
     }
     
     public void setSkills(String skills)
@@ -164,5 +231,9 @@ public class ModelProperty
     public Properties newProp()
     {
         return property;
+    }
+
+    private ArrayList<String> ArrayList() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
