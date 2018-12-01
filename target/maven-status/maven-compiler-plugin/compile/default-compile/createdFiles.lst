@@ -1,7 +1,10 @@
 com\mycompany\resume\IProperty.class
+com\mycompany\resume\PropertyService.class
 com\mycompany\resume\ModelProperty.class
 com\mycompany\resume\WorkWithFile.class
 com\mycompany\resume\GenerateHtml.class
 com\mycompany\resume\Ihtml.class
+com\mycompany\resume\PropertyReader.class
+com\mycompany\resume\Func.class
 com\mycompany\resume\JavaApplication1.class
 com\mycompany\resume\ValueFromProp.class

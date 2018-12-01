@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>mycompany</groupId>
-    <artifactId>bond</artifactId>
+    <artifactId>Resume</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <packaging>jar</packaging>
@@ -26,7 +26,18 @@
 <groupId>log4j</groupId>
     <artifactId>log4j</artifactId>
     <version>1.2.17</version>
+            <type>jar</type>
         </dependency>
+            <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter</artifactId>
+        <version>1.5.8.RELEASE</version>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+        <version>1.5.8.RELEASE</version>
+    </dependency>
     </dependencies>
 
     <build>
@@ -35,7 +46,7 @@
         <sourceDirectory>src/main/java</sourceDirectory>
         <resources>
             <resource>
-                <directory>${basedir}/src/main/resources</directory>
+                <directory>${basedir}/src/main/java/com/resources</directory>
                 <includes>
                     <include>*.properties</include>
                 </includes>
