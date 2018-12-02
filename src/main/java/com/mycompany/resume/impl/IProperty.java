@@ -1,5 +1,6 @@
-package com.mycompany.resume;
+package com.mycompany.resume.impl;
 
+import com.mycompany.resume.ModelProperty;
 import java.util.ArrayList;
 import java.util.Properties;
 

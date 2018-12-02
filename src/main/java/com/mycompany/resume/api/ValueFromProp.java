@@ -1,5 +1,7 @@
-package com.mycompany.resume;
+package com.mycompany.resume.api;
 
+import com.mycompany.resume.ModelProperty;
+import com.mycompany.resume.impl.IProperty;
 import java.util.ArrayList;
 import java.util.Properties;
 
@@ -9,7 +11,7 @@ public class ValueFromProp implements IProperty
             ArrayList<String> resum = new ArrayList<>();
             ModelProperty mp = new ModelProperty(property);
             
-            ValueFromProp (ArrayList<String> resum, Properties property, ModelProperty mp)
+            public ValueFromProp (ArrayList<String> resum, Properties property, ModelProperty mp)
             {
                 this.mp = mp;
                 this.resum = resum;

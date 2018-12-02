@@ -1,9 +1,9 @@
- package com.mycompany.resume;
+ package com.mycompany.resume.impl;
 
 import java.util.ArrayList;
 import java.util.Properties;
 
-interface Ihtml
+public interface Ihtml
 {
     ArrayList<String> generateHtml(ArrayList<String> resum, ArrayList<String> html);
 }

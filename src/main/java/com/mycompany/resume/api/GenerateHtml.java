@@ -1,5 +1,6 @@
-package com.mycompany.resume;
+package com.mycompany.resume.api;
 
+import com.mycompany.resume.impl.Ihtml;
 import java.util.ArrayList;
 import java.util.Properties;
 
@@ -10,7 +11,7 @@ public  class GenerateHtml implements Ihtml
             ArrayList<String> html;
             String text;
             
-            GenerateHtml (ArrayList<String> resum)
+            public GenerateHtml (ArrayList<String> resum)
             {
                 this.resum = resum;
             }

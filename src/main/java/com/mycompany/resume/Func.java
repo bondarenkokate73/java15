@@ -1,5 +1,7 @@
 package com.mycompany.resume;
 
+import com.mycompany.resume.api.ValueFromProp;
+import com.mycompany.resume.api.GenerateHtml;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Properties;
