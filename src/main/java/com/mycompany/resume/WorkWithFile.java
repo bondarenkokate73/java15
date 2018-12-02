@@ -50,7 +50,7 @@ public class WorkWithFile
         }
     }
     
-    public void readFile(String name, Properties property)
+    public Properties readFile(String name, Properties property)
     {
         FileInputStream fis;
 
@@ -66,6 +66,7 @@ public class WorkWithFile
             System.err.println("ОШИБКА: Файл свойств отсуствует в директории!" + dir);
             log.error("ОШИБКА: Файл свойств отсуствует!");
         }
+        return property;
     }
     
     public void writeFile(String text)

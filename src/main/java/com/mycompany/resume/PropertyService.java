@@ -1,5 +1,11 @@
 package com.mycompany.resume;
 
-public class PropertyService {
-    
+import java.util.Properties;
+import org.springframework.stereotype.Service;
+
+@Service
+public interface PropertyService  {
+
+    public Properties read();
+
 }

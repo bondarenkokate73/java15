@@ -1,26 +1,28 @@
 package com.mycompany.resume;
 
 import java.util.Properties;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-class PropertyReader extends Thread {
+class PropertyReader implements PropertyService//extends Thread 
+{
     
     private String name;
     private Properties property;
-    WorkWithFile wwf = new WorkWithFile();
     
     public PropertyReader(String name, Properties property)
     {
         this.name = name;
         this.property = property;
-        this.start();
+ //       this.start();
     }
     
     @Override
-    public void run()
+    public Properties read()
     {
-        wwf.readFile(name, property);
-        
+       WorkWithFile wwf = new WorkWithFile();
+       return wwf.readFile(name, property); 
     }
+
 }
