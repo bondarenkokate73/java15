@@ -46,9 +46,9 @@
         <sourceDirectory>src/main/java</sourceDirectory>
         <resources>
             <resource>
-                <directory>${basedir}/src/main/java/com/resources</directory>
+                <directory>${basedir}/src/main/java/com/resourses</directory>
                 <includes>
-                    <include>*.properties</include>
+                    <include>log4j.properties</include>
                 </includes>
             </resource>
         </resources>

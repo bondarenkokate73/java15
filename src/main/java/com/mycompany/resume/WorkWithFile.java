@@ -15,15 +15,25 @@ public class WorkWithFile
    String dir =  System.getProperty("user.dir") + "/src/main/java/com/resourses/";
  //   File dir = new File("/src/main/resources");
     File file = new File(dir, "html.html");
-        
+        File log4j = new File(dir, "log4j.properties");
 //    Properties property = new Properties();
     
     public void createFile()
     {
+        if (!log4j.exists())
+                {
+                 System.out.println("Файл лог4джи не существовал " + log4j);
+                }
+                else
+                {
+                 System.out.println("Файл лог4джи найден " + log4j);   
+                }
+        
         if (!file.exists())
         {
             try
             {
+                
                 boolean isFile =  file.createNewFile();
                 System.out.println("Файл html создан.");
                 log.info("Файл html создан.");
